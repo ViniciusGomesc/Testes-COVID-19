@@ -1,7 +1,7 @@
 /*
     Integrantes: Carlos Eduardo Máximo, Pedro Emanuel de Avelar Sousa de Almeida e Vinicius do Carmo Gomes
     Matriculas: 6962, 6965, 6953;
-    Nome do Programa testesCovid.c;
+    Nome do Programa: testesCovid.c;
     Nome da Base de Dados: testes.c;
 */
 
@@ -63,7 +63,7 @@ int main() {
                 printf("\nInforme um nome para consultar os testes: ");
                 gets(nome);
 
-                consultarTestes(nome, dataPeople, numeroDeTestes);
+                consultTests(nome, dataPeople, numeroDeTestes);
 
             break;
 
