@@ -296,5 +296,6 @@ void endProg() {
     printf("Pressione \"Enter\" para finalizar o programa");
     getchar();
     clscr();
+            
 
 }
