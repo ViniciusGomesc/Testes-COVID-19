@@ -1,13 +1,11 @@
 /*
-    Integrantes: Carlos Eduardo Máximo, Pedro Emanuel de Avelar Sousa de Almeida e Vinicius Gomes 
-    Matriculas: ;
+    Integrantes: Carlos Eduardo Máximo, Pedro Emanuel de Avelar Sousa de Almeida e Vinicius do Carmo Gomes
+    Matriculas: 6962, 6965, 6953;
     Nome do Programa testesCovid.c;
     Nome da Base de Dados: testes.c;
 */
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include "main.h" // Custom lib
+
+#include "cadastro.h" // Custom lib
 
 int main() {
 
