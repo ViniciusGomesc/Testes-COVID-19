@@ -238,7 +238,7 @@ int yearsOld(Pessoa dataDeNascimento) {
 }
 
 // Retorna o a posição do nome buscado, caso não econtre retorna -1.
-int buscaPessoa(char nome[], Pessoa dataPeople[], int numeroDeTestes){
+int personSearch(char nome[], Pessoa dataPeople[], int numeroDeTestes) {
 
     int i;
     int encontrou_pessoa;
@@ -263,7 +263,7 @@ int buscaPessoa(char nome[], Pessoa dataPeople[], int numeroDeTestes){
 }
 
 // Imprime os dados da pessoa encontrada, caso não encontre imprime não encontrada.
-void consultarTestes(char nome[], Pessoa dataPeople[], int numeroDeTestes){
+void consultTests(char nome[], Pessoa dataPeople[], int numeroDeTestes){
 
     int posicao;
 
@@ -272,7 +272,7 @@ void consultarTestes(char nome[], Pessoa dataPeople[], int numeroDeTestes){
     }else{
 
         // Chama função para retorna a posição da pessoa.
-        posicao = buscaPessoa(nome, dataPeople, numeroDeTestes);
+        posicao = personSearch(nome, dataPeople, numeroDeTestes);
 
         if(posicao == -1){
             printf("\nPessoa nao encontrada no sistema.");
