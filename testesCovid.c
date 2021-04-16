@@ -12,8 +12,11 @@ int main() {
     // Declaração de variavéis
     int i, numeroDeTestes;
     int opcao;
+    int aux;
+    char nome[50];
     Pessoa dataPeople[100]; // Passando uma variavél correspondente ao struct Pessoa para acessar os campos
 
+    numeroDeTestes = 0;
 
     // Enquanto o a opção digitada não for 0 as opções são executadas
     do {
@@ -31,14 +34,16 @@ int main() {
                 printf("Ola, bem vindo a sessao de cadastro de testes!\n\n");
 
                 // Pegando a quantidade de testes que o usuario informou
-                printf("Para proseguir com o registro por favor informe quantos testes voce deseja cadastrar: ");
-                scanf("%d", &numeroDeTestes);
+                printf("Para proseguir com o registro, por favor informe quantos testes voce deseja cadastrar: ");
+                scanf("%d", &aux);
+
+                numeroDeTestes += aux;
 
                 getchar(); // Limpando o Buffer
                 clscr(); // Função que limpa a tela
 
                 /* De acordo com o numero de testes informado pelo usário, vai fazer um loop que contém as informações nome, data de nascimento, cpf, rua, idaderesultado e sexo não nesta ordem e calcula a idade */
-                for(i = 0; i < numeroDeTestes; i++) {
+                for(i = 0; i < aux; i++) {
                     
                     dataPeople[i] = regNewTests();
                     dataPeople[i].idade = yearsOld(dataPeople[i]);
@@ -49,11 +54,17 @@ int main() {
 
                 printf("Cadastro realizado com sucesso!");
 
-                getchar();
+                enter();
 
             break;
 
             case 2:
+                
+                printf("\nInforme um nome para consultar os testes: ");
+                gets(nome);
+
+                consultarTestes(nome, dataPeople, numeroDeTestes);
+
             break;
 
             case 3:

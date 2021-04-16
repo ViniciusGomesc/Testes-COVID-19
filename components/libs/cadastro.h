@@ -236,3 +236,59 @@ int yearsOld(Pessoa dataDeNascimento) {
     return resultado;
 
 }
+
+// Retorna o a posição do nome buscado, caso não econtre retorna -1.
+int buscaPessoa(char nome[], Pessoa dataPeople[], int numeroDeTestes){
+
+    int i;
+    int encontrou_pessoa;
+
+    // Valor bool.
+    encontrou_pessoa = 0;
+
+    // Verificação da igualdade dos nomes.
+    for(i = 0; i < numeroDeTestes; i++){
+        if(strcmp(nome, dataPeople[i].fullName) == 0){
+            encontrou_pessoa = 1;
+            break;
+        }
+    }
+
+    if(!encontrou_pessoa){
+        return -1;
+    }
+
+    return i;
+
+}
+
+// Imprime os dados da pessoa encontrada, caso não encontre imprime não encontrada.
+void consultarTestes(char nome[], Pessoa dataPeople[], int numeroDeTestes){
+
+    int posicao;
+
+    if(numeroDeTestes == 0){
+        printf("\nNenhuma pessoa foi cadastrada no sistema.");
+    }else{
+
+        // Chama função para retorna a posição da pessoa.
+        posicao = buscaPessoa(nome, dataPeople, numeroDeTestes);
+
+        if(posicao == -1){
+            printf("\nPessoa nao encontrada no sistema.");
+        }else{
+            // Imprime as informações da pessoa encontrada no sistema.
+            printf("\nNome = %s", dataPeople[posicao].fullName);
+            printf("\nCPF = %s", dataPeople[posicao].cpf);
+            printf("\nData de nascimento: %d/%d/%d", dataPeople[posicao].dia, dataPeople[posicao].mes, dataPeople[posicao].ano);
+            printf("\nIdade = %d", dataPeople[posicao].idade);
+            printf("\nSexo = %c", dataPeople[posicao].sexo);
+            printf("\nBairro = %s", dataPeople[posicao].bairro);
+            printf("\nResultado do teste = %c", dataPeople[posicao].resultadoTeste);
+        }
+
+    }
+
+    enter();
+
+}

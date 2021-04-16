@@ -47,16 +47,28 @@ int menu() {
 
         printf("Digite a opcao: ");
         scanf("%d", &opcao);
+        getchar();
 
     } while(!((opcao >= 0) && (opcao <= 6)));
 
     return opcao;
 }
 
+// Mensagem para prosseguir o programa.
+void enter(){
+
+    printf("\n \n");
+
+    printf("Pressione \"Enter\" para prosseguir\n");
+    
+    getchar();
+    clscr();
+
+}
 /* Função de encerramento do programa, endProg (Fim do Programa) */
 void endProg() {
 
-    printf("Pressione \"Enter\" para finalizar o programa");
+    printf("Pressione \"Enter\" para finalizar o programa\n");
     
     getchar();
     clscr();
