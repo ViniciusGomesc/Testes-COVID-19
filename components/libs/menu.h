@@ -3,6 +3,12 @@
 #include <time.h>
 #include <string.h>
 
+/* 
+===============================================
+            DEFINIÇÃO DE FUNÇÕES
+===============================================
+*/
+
 /* Função que limpa a tela do terminal, nome abreviado de clearScreen (Limpa Tela) */
 void clscr() {
 
