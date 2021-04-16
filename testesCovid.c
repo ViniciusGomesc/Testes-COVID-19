@@ -4,9 +4,7 @@
     Nome do Programa testesCovid.c;
     Nome da Base de Dados: testes.c;
 */
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
+
 #include "main.h" // Custom lib
 
 int main() {
