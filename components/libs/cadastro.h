@@ -326,7 +326,7 @@ int removePerson (char nome[], Pessoa dataPeople[], int *numeroDeTestes) {
         }else {
 
             // Inicia da posição da pessoa que desejo apagar e a sobscreve pela pessoa da próxima posição.
-            for(posicao;posicao<*numeroDeTestes;posicao++) {
+            for(posicao; posicao < *numeroDeTestes; posicao++) {
 
                 dataPeople[posicao] = dataPeople[posicao+1];
 
