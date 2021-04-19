@@ -102,11 +102,11 @@ int main() {
 
                 }
 
+                savingTests(dataPeople, numeroDeTestes-testesCancelados);
+
                 clscr();
                 printf("Arquivo salvo!");
                 enter();
-
-                savingTests(dataPeople, numeroDeTestes);
 
             break;
 
