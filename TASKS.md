@@ -16,4 +16,5 @@
 - [x]  Cadastrar novos testes;
 - [x]  Consultar teste;
 - [x]  Cancelar teste;
+- [x]  Salvar informações em arquivo;
 
