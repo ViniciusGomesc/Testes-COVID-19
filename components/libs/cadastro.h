@@ -145,7 +145,7 @@ int yearsOld(Pessoa dataDeNascimento) {
 
     }
 
-    year[j] = '\0';
+    day[j] = '\0';
 
     j = 0;
 
@@ -158,7 +158,7 @@ int yearsOld(Pessoa dataDeNascimento) {
 
     }
 
-    day[j] = '\0';
+    year[j] = '\0';
 
     /* Convertendo dia e ano de string para inteiro */
     dia = atoi(day);
@@ -326,7 +326,7 @@ int removePerson (char nome[], Pessoa dataPeople[], int *numeroDeTestes) {
         }else {
 
             // Inicia da posição da pessoa que desejo apagar e a sobscreve pela pessoa da próxima posição.
-            for(posicao; posicao < *numeroDeTestes; posicao++) {
+            for(posicao;posicao<*numeroDeTestes;posicao++) {
 
                 dataPeople[posicao] = dataPeople[posicao+1];
 
