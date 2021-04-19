@@ -406,41 +406,32 @@ int removePerson (int posicao, Pessoa dataPeople[], int *numeroDeTestes) {
 }
 
 // Função responsavel para salver os testes em um "txt".
-void salvarTestes(Pessoa dataPeople[], int numeroDeTestes){
+void savingTests(Pessoa dataPeople[], int numeroDeTestes){
    
     int i;
     char aux;
     FILE *arq;
 
     // Variavel que abre o arquivo no modo leitura.
-    arq = fopen("testes.txt", "r");
+    arq = fopen("testes.txt", "w");
 
-    // Verifica se o arquivo existe.
-    if(arq != NULL) {
-
-        // Abre o arquivo no modo append.
-        arq = fopen("testes.txt", "a");
-
-        fprintf(arq, "\n\n");
-
-    }else {
-
-        // Se ele não existir abre no modo escrita.
-        arq = fopen("testes.txt", "w");
-
-    }
+    // Imprime os numeros de testes no arquivo.
+    fprintf(arq, "%d\n\n", numeroDeTestes);
 
     // Imprime os dados no arquivo "testes.txt".
     for(i = 0; i < numeroDeTestes; i++) {
 
-        fprintf(arq, "%s", dataPeople[i].fullName); // Nome 
-        fprintf(arq, "\n%s", dataPeople[i].cpf); // CPF
-        fprintf(arq, "\n%d/%d/%d", dataPeople[i].dia, dataPeople[i].mes, dataPeople[i].ano); // Data de nascimento
-        fprintf(arq, "\n%d", dataPeople[i].idade); // Idade
-        fprintf(arq, "\n%c", dataPeople[i].sexo); // Sexo
-        fprintf(arq, "\n%s", dataPeople[i].bairro);// Bairro
-        fprintf(arq, "\n%c", dataPeople[i].resultadoTeste); // Resultado do teste
-        fprintf(arq, "\n%d", dataPeople[i].valido); // Retorna valido em bool.
+        if(dataPeople[i].valido){
+            
+            fprintf(arq, "%s", dataPeople[i].fullName); // Nome 
+            fprintf(arq, "\n%s", dataPeople[i].cpf); // CPF
+            fprintf(arq, "\n%d/%d/%d", dataPeople[i].dia, dataPeople[i].mes, dataPeople[i].ano); // Data de nascimento
+            fprintf(arq, "\n%d", dataPeople[i].idade); // Idade
+            fprintf(arq, "\n%c", dataPeople[i].sexo); // Sexo
+            fprintf(arq, "\n%s", dataPeople[i].bairro);// Bairro
+            fprintf(arq, "\n%c", dataPeople[i].resultadoTeste); // Resultado do teste
+            fprintf(arq, "\n%d", dataPeople[i].valido); // Retorna valido em bool
+        }
 
         if(i != numeroDeTestes - 1) {
             fprintf(arq, "\n\n");

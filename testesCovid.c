@@ -106,8 +106,7 @@ int main() {
                 printf("Arquivo salvo!");
                 enter();
 
-                salvarTestes(dataPeople, numeroDeTestes);
-
+                savingTests(dataPeople, numeroDeTestes);
 
             break;
 
