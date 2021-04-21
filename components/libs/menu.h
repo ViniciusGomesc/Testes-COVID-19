@@ -27,7 +27,7 @@ int menu() {
         clscr();
     
         // Imprimindo linha decorativa 
-        printf("-----------------------------------------------------------\n");
+        printf("-----------------------------------------------------------\n\n");
 
         // Imprimindo Menu de Opções
         printf("\t\t#### TESTES COVID-19 ####\n\n");
@@ -43,9 +43,9 @@ int menu() {
         printf("0 - Sair\n");
 
         // Imprimindo linha decorativa 
-        printf("-----------------------------------------------------------\n");
+        printf("\n-----------------------------------------------------------\n");
 
-        printf("Digite a opcao: ");
+        printf("\nDigite a opcao: ");
         scanf("%d", &opcao);
         getchar();
 
@@ -96,7 +96,7 @@ void saving(int pontinhos, int segundos){
     for(i = 0; i < pontinhos; i++){
 
         printf(".");
-        sleep(segundos);
+        usleep(segundos * 1000);
 
     }
 }
