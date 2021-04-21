@@ -5,7 +5,6 @@
     Nome da Base de Dados: testes.c;
 */
 
-
 #include "./components/libs/cadastro.h" // Custom lib
 
 int main() {
@@ -130,7 +129,7 @@ int main() {
             case 5:
 
                 printAll(dataPeople, numeroDeTestes);
-                
+
             break;
 
             case 6:
