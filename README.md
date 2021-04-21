@@ -6,7 +6,7 @@
 </p>
 <br>
 
-<h1 align=center> 🧰 Testes Covid<br></h1>
+<h1 align=center> 🧰 TESTES COVID-19<br></h1>
 
 <p>
 <h1 align=center>Autores</h1>
