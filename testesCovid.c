@@ -5,7 +5,7 @@
     Nome da Base de Dados: testes.c;
 */
 
-#include "./components/libs/cadastro.h" // Custom lib
+#include "./components/libs/cadastro.h" // Inclui a lib principal do programa.
 
 int main() {
 
