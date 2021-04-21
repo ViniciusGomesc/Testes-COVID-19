@@ -40,7 +40,6 @@ void firstName(char nomeCompleto[], char name[]) {
     /* Evita de imprimir lixo depois do '\0 */
     name[i] = '\0'; 
 
-
 }
 
 /* Função que cadastra novos testes, regNewTests => Registrar novos testes */
@@ -287,7 +286,9 @@ int personSearch(char nome[], Pessoa dataPeople[], int numeroDeTestes) {
     }
 
     if(!encontrou_pessoa) {
+
         return -1;
+
     }
 
     return i;
@@ -318,15 +319,19 @@ void consultTests(char nome[], Pessoa dataPeople[], int numeroDeTestes) {
             printf("\nNome = %s", dataPeople[posicao].fullName);
             printf("\nCPF = %s", dataPeople[posicao].cpf);
             printf("\nData de nascimento: ");
-           
-            if(dataPeople[posicao].dia < 10){
+
+            if(dataPeople[posicao].dia < 10) {
+
                 printf("0");
+
             }
 
             printf("%d/", dataPeople[posicao].dia);
 
-            if(dataPeople[posicao].mes < 10){
+            if(dataPeople[posicao].mes < 10) {
+
                 printf("0");
+
             }
 
             printf("%d/", dataPeople[posicao].mes);
@@ -336,13 +341,14 @@ void consultTests(char nome[], Pessoa dataPeople[], int numeroDeTestes) {
             printf("\nBairro = %s", dataPeople[posicao].bairro);
             printf("\nResultado do teste = %c", dataPeople[posicao].resultadoTeste);
 
-            if(dataPeople[posicao].valido == 1){
+            if(dataPeople[posicao].valido == 1) {
 
                 printf("\nValido = Sim");
 
-            }else{
+            }else {
 
                 printf("\nValido = Nao");
+
             }
 
         }
@@ -377,15 +383,19 @@ int removePerson(int posicao, Pessoa dataPeople[], int *numeroDeTestes) {
             printf("\nNome = %s", dataPeople[posicao].fullName);
             printf("\nCPF = %s", dataPeople[posicao].cpf);
             printf("\nData de nascimento: ");
-           
-            if(dataPeople[posicao].dia < 10){
+
+            if(dataPeople[posicao].dia < 10) {
+
                 printf("0");
+
             }
 
             printf("%d/", dataPeople[posicao].dia);
 
-            if(dataPeople[posicao].mes < 10){
+            if(dataPeople[posicao].mes < 10) {
+
                 printf("0");
+
             }
 
             printf("%d/", dataPeople[posicao].mes);
@@ -399,7 +409,7 @@ int removePerson(int posicao, Pessoa dataPeople[], int *numeroDeTestes) {
 
                 printf("\nValido = Sim");
 
-            }else{
+            }else {
 
                 printf("\nValido = Nao");
             }
@@ -420,7 +430,9 @@ int removePerson(int posicao, Pessoa dataPeople[], int *numeroDeTestes) {
             }else {
 
                 printf("\nO teste na posicao %d nao foi cancelado.", posicao);
+
             }
+
         }
 
     }
@@ -433,7 +445,7 @@ int removePerson(int posicao, Pessoa dataPeople[], int *numeroDeTestes) {
 
 // Função responsavel para salver os testes em um "txt".
 void savingTests(Pessoa dataPeople[], int numeroDeTestes) {
-   
+
     int i;
     char aux;
     FILE *arq;
@@ -452,14 +464,20 @@ void savingTests(Pessoa dataPeople[], int numeroDeTestes) {
             fprintf(arq, "%s", dataPeople[i].fullName); // Nome.
             fprintf(arq, "\n%s\n", dataPeople[i].cpf); // CPF.
             
-            if(dataPeople[i].dia < 10){
+            if(dataPeople[i].dia < 10) {
+
                 fprintf(arq, "0");
+
             }
+
             fprintf(arq, "%d/", dataPeople[i].dia); // Dia.
             
-            if(dataPeople[i].mes < 10){
+            if(dataPeople[i].mes < 10) {
+
                 fprintf(arq, "0");
+
             }
+
             fprintf(arq, "%d/", dataPeople[i].mes); // Mes.
 
             fprintf(arq, "%d", dataPeople[i].ano);// Ano.
@@ -467,18 +485,22 @@ void savingTests(Pessoa dataPeople[], int numeroDeTestes) {
             fprintf(arq, "\n%c", dataPeople[i].sexo); // Sexo.
             fprintf(arq, "\n%s", dataPeople[i].bairro);// Bairro.
             fprintf(arq, "\n%c", dataPeople[i].resultadoTeste); // Resultado do teste.
+
         }
 
         if(i != numeroDeTestes - 1) {
+
             fprintf(arq, "\n");
+
         }
     }
 
     fclose(arq);
+
 }
 
 // Função responsável por verificar os dados do arquivo "txt".
-void verificaArquivo(Pessoa dataPeople[], int *numeroDeTestes){
+void checksFile(Pessoa dataPeople[], int *numeroDeTestes) {
 
     int i, j;
     FILE *arquivo;
@@ -487,31 +509,34 @@ void verificaArquivo(Pessoa dataPeople[], int *numeroDeTestes){
     // Abre o arquivo no modo leitura.
     arquivo = fopen("testes.txt", "r");
 
-    if(arquivo != NULL){
+    if(arquivo != NULL) {
         
         // Pega a primeira linha do arquivo.
         fgets(aux, 100, arquivo);
 
-        if(aux[0] >= '0' && aux[0] <= '9'){
+        if(aux[0] >= '0' && aux[0] <= '9') {
             
             // Converte para o numero de testes feitos para inteiro.
             *numeroDeTestes = atoi(aux);
             fgets(aux, 100, arquivo);
 
             // Pega todas as informações do "txt".
-            for(i = 0; i < *numeroDeTestes; i++){
+            for(i = 0; i < *numeroDeTestes; i++) {
 
                 fgets(dataPeople[i].fullName, 100, arquivo); // Nome.
                 dataPeople[i].fullName[strlen(dataPeople[i].fullName) - 1] = '\0';
+
                 fgets(dataPeople[i].cpf, 20, arquivo); // CPF.
-                dataPeople[i].cpf[strlen(dataPeople[i].cpf) - 1] = '\0'; 
+                dataPeople[i].cpf[strlen(dataPeople[i].cpf) - 1] = '\0';
+
                 fgets(aux, 100, arquivo);
 
-                for(j = 0; aux[j] != '\0'; j++){
+                for(j = 0; aux[j] != '\0'; j++) {
                     
-                    if(aux[j] == '/'){
+                    if(aux[j] == '/') {
 
                         aux[j] = '\0';
+
                     }
 
                 }
@@ -535,36 +560,42 @@ void verificaArquivo(Pessoa dataPeople[], int *numeroDeTestes){
                 dataPeople[i].valido = 1; // Valor bool para valido ou não.
 
             }
+
         }
 
     }   
 
     // Fecha o arquivo.
     fclose(arquivo);
+
 }
 
 // Imprime todos os testes feitos.
-void imprimeTodos(Pessoa dataPeople[], int numeroDeTestes){
+void printAll(Pessoa dataPeople[], int numeroDeTestes) {
    
     int i;
 
     printf("\nTestes feitos: %d\n", numeroDeTestes);
 
     // Percorre e imprime todos os dados.
-    for(i = 0; i < numeroDeTestes; i++){
+    for(i = 0; i < numeroDeTestes; i++) {
 
             printf("\nNome = %s", dataPeople[i].fullName);
             printf("\nCPF = %s", dataPeople[i].cpf);
             printf("\nData de nascimento: ");
            
-            if(dataPeople[i].dia < 10){
+            if(dataPeople[i].dia < 10) {
+
                 printf("0");
+
             }
 
             printf("%d/", dataPeople[i].dia);
 
-            if(dataPeople[i].mes < 10){
+            if(dataPeople[i].mes < 10) {
+
                 printf("0");
+
             }
 
             printf("%d/", dataPeople[i].mes);
@@ -578,4 +609,5 @@ void imprimeTodos(Pessoa dataPeople[], int numeroDeTestes){
     }
 
     enter();
+
 }

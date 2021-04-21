@@ -3,6 +3,7 @@
 #include <time.h>
 #include <string.h>
 
+
 /* 
 ===============================================
             DEFINIÇÃO DE FUNÇÕES
@@ -52,6 +53,7 @@ int menu() {
     } while(!((opcao >= 0) && (opcao <= 6)));
 
     return opcao;
+    
 }
 
 // Mensagem para prosseguir o programa.
@@ -65,6 +67,7 @@ void enter() {
     clscr();
 
 }
+
 /* Função de encerramento do programa, endProg (Fim do Programa) */
 void endProg() {
     
@@ -89,14 +92,15 @@ void endProg() {
 }
 
 // Imprime "pontinhos" em um determinado tempo.
-void saving(int pontinhos, int segundos){
+void saving(int pontinhos, int segundos) {
     
     int i;
 
-    for(i = 0; i < pontinhos; i++){
+    for(i = 0; i < pontinhos; i++) {
 
         printf(".");
         usleep(segundos * 1000);
 
     }
+
 }
