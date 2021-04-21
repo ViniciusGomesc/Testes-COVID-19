@@ -130,7 +130,7 @@ int main() {
             case 5:
 
                 printAll(dataPeople, numeroDeTestes);
-
+                
             break;
 
             case 6:
