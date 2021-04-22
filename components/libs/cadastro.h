@@ -481,7 +481,6 @@ void savingTests(Pessoa dataPeople[], int numeroDeTestes) {
             fprintf(arq, "%d/", dataPeople[i].mes); // Mes.
 
             fprintf(arq, "%d", dataPeople[i].ano);// Ano.
-            fprintf(arq, "\n%d", dataPeople[i].idade); // Idade.
             fprintf(arq, "\n%c", dataPeople[i].sexo); // Sexo.
             fprintf(arq, "\n%s", dataPeople[i].bairro);// Bairro.
             fprintf(arq, "\n%c", dataPeople[i].resultadoTeste); // Resultado do teste.
@@ -559,8 +558,7 @@ void checksFile(Pessoa dataPeople[], int *numeroDeTestes) {
                 dataPeople[i].mes = atoi(&aux[3]); // Mes.
                 dataPeople[i].ano = atoi(&aux[6]); // Ano.
 
-                fgets(aux, 100, arquivo);
-                dataPeople[i].idade = atoi(aux); // Idade.
+                dataPeople[i].idade = yearsOld(dataPeople[i]);
 
                 fgets(aux, 100, arquivo);
                 dataPeople[i].sexo = aux[0]; // Sexo.
@@ -577,7 +575,7 @@ void checksFile(Pessoa dataPeople[], int *numeroDeTestes) {
 
         }
 
-    }   
+    }
 
     // Fecha o arquivo.
     fclose(arquivo);
@@ -634,6 +632,113 @@ void printAll(Pessoa dataPeople[], int numeroDeTestes) {
             printf("\n");
 
     }
+
+    enter();
+
+}
+
+// Função que verifica a quantidade de pessoas infectados.
+int positiveTests(Pessoa dataPeople[], int numeroDeTestes){
+
+    int i, testesPositivos;
+
+    testesPositivos = 0;
+
+    for(i = 0; i < numeroDeTestes; i++){
+
+        if(dataPeople[i].resultadoTeste == 'P'){
+
+            testesPositivos++;
+        }
+
+    }
+
+    return testesPositivos;
+
+}
+
+// Função que verifica a quantidade de jovens infectados.
+int infectedsYoungs(Pessoa dataPeople[], int numeroDeTestes){
+
+    int i, jovensInfectados;
+
+    jovensInfectados = 0;
+
+    for(i = 0; i < numeroDeTestes; i++){
+
+        if(dataPeople[i].idade < 20){
+
+            if(dataPeople[i].resultadoTeste == 'N'){
+
+                jovensInfectados++;
+
+            }
+
+        }
+
+    }
+
+    return jovensInfectados;
+
+}
+
+// Função que verifica a quantidade de adultos infectados.
+int  infectedsAdults(Pessoa dataPeople[], int numeroDeTestes){
+
+    int i, adultosInfectados;
+
+    adultosInfectados = 0;
+
+    for(i = 0; i < numeroDeTestes; i++){
+
+        if(dataPeople[i].idade >= 20 && dataPeople[i].idade < 60){
+
+            if(dataPeople[i].resultadoTeste == 'N'){
+
+                adultosInfectados++;
+
+            }
+
+        }
+
+    }
+
+    return adultosInfectados;
+
+}
+
+// Função responsável para calculo de porcentagem.
+float percentage(int valor, int total){
+
+    float porcentagem;
+
+    porcentagem = ((valor * 100.0) / total);
+
+    return porcentagem;
+}
+
+// Imprime os dados da opção 6.
+void printReport(Pessoa dataPeople[], int numeroDeTestes){
+
+    int pessoasInfectadas, pessoasNaoInfectadas, jovensInfectados, adultosInfectados, IdososInfectados;
+
+    pessoasInfectadas = positiveTests(dataPeople, numeroDeTestes);
+    pessoasNaoInfectadas = numeroDeTestes - pessoasInfectadas;
+
+    jovensInfectados = infectedsYoungs(dataPeople, numeroDeTestes);
+    adultosInfectados = infectedsAdults(dataPeople, numeroDeTestes);
+    IdososInfectados = pessoasInfectadas - jovensInfectados - adultosInfectados;
+
+    printf("-----------------------------------------------------------\n\n");
+    printf("\t\t  Relatorio Covid - 19\n\n");
+    printf("-----------------------------------------------------------\n\n");
+    printf("Total de pessoas cadastradas: %d\n", numeroDeTestes);
+    printf("Pessoas nao infectadas: %d (%.2f%%)\n", pessoasNaoInfectadas, percentage(pessoasNaoInfectadas, numeroDeTestes));
+    printf("Pessoas infectadas: %d (%.2f%%)\n", pessoasInfectadas, percentage(pessoasInfectadas, numeroDeTestes));
+    printf("\tJovens infectados: %d (%.2f%%)\n", jovensInfectados, percentage(jovensInfectados, pessoasInfectadas));
+    printf("\tAdultos infectados: %d (%.2f%%)\n", adultosInfectados, percentage(adultosInfectados, pessoasInfectadas));
+    printf("\tIdosos infectados: %d (%.2f%%)\n\n", IdososInfectados, percentage(IdososInfectados, pessoasInfectadas));
+    printf("-----------------------------------------------------------");
 
     enter();
 
