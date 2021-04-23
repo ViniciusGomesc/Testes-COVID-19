@@ -688,7 +688,7 @@ int infectedsYoungs(Pessoa dataPeople[], int numeroDeTestes){
 
         if(dataPeople[i].idade < 20){
 
-            if(dataPeople[i].resultadoTeste == 'N'){
+            if(dataPeople[i].resultadoTeste == 'P'){
 
                 jovensInfectados++;
 
@@ -713,7 +713,7 @@ int  infectedsAdults(Pessoa dataPeople[], int numeroDeTestes){
 
         if(dataPeople[i].idade >= 20 && dataPeople[i].idade < 60){
 
-            if(dataPeople[i].resultadoTeste == 'N'){
+            if(dataPeople[i].resultadoTeste == 'P'){
 
                 adultosInfectados++;
 
