@@ -1,5 +1,5 @@
 <p align= center>
-<img src = "Brasão_oficial_da_Universidade_Federal_de_Viçosa.gif" width= 120px heigth= 120px>
+<img src = ".github/Brasão_oficial_da_Universidade_Federal_de_Viçosa.gif" width= 120px heigth= 120px>
 <h1 align=center>Universidade Federal de Viçosa</h1>
 <p align=center><i>Campus</i> Rio Paranaíba<br> Curso: Sistemas de Informação <br> Disciplina SIN 110 - Programação
 </p>
@@ -27,7 +27,7 @@
 </p>
 
 ```
-$ git clone "https://github.com/Carlosmax1/Testes-COVID-19/"
+$ git clone "https://github.com/Pedroemanuelavelar/Testes-COVID-19"
 ```
 <p align=justify>
   rode o programa com o comando:
@@ -65,3 +65,9 @@ $ ./testesCovid
 <blockquote>
   Obrigado a todos envolvidos, orgulhosamente criado com ❤️ pela equipe! Agradecemos ao professor <em>Matheus Haddad</em>!
 </blockquote>
+
+
+
+
+ 
+ 

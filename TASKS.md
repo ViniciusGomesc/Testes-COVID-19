@@ -15,5 +15,8 @@
 - [x]  Consultar teste;
 - [x]  Cancelar teste;
 - [x]  Salvar informações em arquivo;
-- [x]  Visulizar todos os testes;
+- [x]  Visualizar informações de testes realizados;
+
+
+
 
